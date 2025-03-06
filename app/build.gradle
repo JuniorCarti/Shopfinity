@@ -31,13 +31,12 @@ android {
 dependencies {
 
     implementation libs.appcompat
-    implementation libs.material
+    implementation libs.material //For Material Components (BottomNavigationView)
     implementation libs.activity
     implementation libs.constraintlayout
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
     implementation libs.lottie //lottie for animations
-    implementation libs.material.v1100 //material components for android
-
+    implementation libs.fragment   // For Fragment
 }
