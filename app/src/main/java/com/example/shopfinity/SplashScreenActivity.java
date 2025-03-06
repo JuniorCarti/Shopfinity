@@ -1,12 +1,14 @@
 package com.example.shopfinity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -15,10 +17,22 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_splash_screen);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
+        // Initialize Views
+        TextView appName = findViewById(R.id.appName);
+        TextView appDescription = findViewById(R.id.appDescription);
+
+        // Load Animation
+        Animation fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+
+        // Start Animation
+        appName.startAnimation(fadeIn);
+        appDescription.startAnimation(fadeIn);
+
+        // Delay and move to WelcomeActivity after 3 seconds
+        new Handler().postDelayed(() -> {
+            startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
+            finish(); // Close Splash Activity
+        }, 3000); // 3-second delay
     }
 }
