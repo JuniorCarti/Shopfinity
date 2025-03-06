@@ -2,32 +2,32 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/splash_background"
     android:gravity="center">
 
-    <!-- App Name (Animated) -->
+    <!-- Lottie Animation -->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieAnimation"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        app:lottie_rawRes="@raw/splash_animation"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"/>
+
+    <!-- App Name Below Animation -->
     <TextView
         android:id="@+id/appName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Shopfinity"
-        android:textSize="60sp"
+        android:textSize="40sp"
         android:textStyle="bold"
         android:textColor="@android:color/white"
-        android:layout_centerInParent="true"
-        android:alpha="0" /> <!-- Initially Hidden -->
-
-    <!-- Small Description Below -->
-    <TextView
-        android:id="@+id/appDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Your Ultimate Shopping Destination"
-        android:textSize="20sp"
-        android:textColor="@android:color/white"
-        android:layout_below="@id/appName"
+        android:layout_below="@id/lottieAnimation"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp"
-        android:alpha="0" /> <!-- Initially Hidden -->
+        android:alpha="0"/>
 
 </RelativeLayout>
