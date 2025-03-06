@@ -25,9 +25,13 @@ public class SplashScreenActivity extends AppCompatActivity {
         // Load Animation
         Animation fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in);
 
-        // Start Animation
+        // Set Animation to Views
         appName.startAnimation(fadeIn);
         appDescription.startAnimation(fadeIn);
+
+        // Make sure text is visible
+        appName.setAlpha(1f);
+        appDescription.setAlpha(1f);
 
         // Delay and move to WelcomeActivity after 3 seconds
         new Handler().postDelayed(() -> {
