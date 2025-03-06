@@ -23,26 +23,28 @@ public class SplashScreenActivity extends AppCompatActivity {
         TextView appDescription = findViewById(R.id.appDescription);
 
         // Load Animations
-        Animation rotate = AnimationUtils.loadAnimation(this, R.anim.rotate);
+        Animation rotateSmooth = AnimationUtils.loadAnimation(this, R.anim.rotate_smooth);
         Animation fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in);
 
-        // Apply Rotation First
-        appName.startAnimation(rotate);
+        // Apply Smooth Rotation First
+        appName.startAnimation(rotateSmooth);
 
-        // Delay the fade-in effect after rotation
+        // Delay fade-in effect to start after rotation finishes
         new Handler().postDelayed(() -> {
             appName.startAnimation(fadeIn);
             appDescription.startAnimation(fadeIn);
-        }, 2000); // Start fade-in after rotation completes
+        }, 4000); // Start fade-in after 4 seconds
 
-        // Ensure text is visible
-        appName.setAlpha(1f);
-        appDescription.setAlpha(1f);
+        // Ensure text is visible after fade-in
+        new Handler().postDelayed(() -> {
+            appName.setAlpha(1f);
+            appDescription.setAlpha(1f);
+        }, 4500); // Small delay to allow fade-in to complete
 
-        // Delay and move to WelcomeActivity after 3.5 seconds
+        // Transition to MainActivity after 6 seconds
         new Handler().postDelayed(() -> {
             startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
             finish(); // Close Splash Activity
-        }, 3500);
+        }, 6000); // 6 seconds total duration
     }
 }
