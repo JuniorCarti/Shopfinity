@@ -129,3 +129,14 @@
                 android:padding="8dp"
                 android:adjustViewBounds="true"/>
         </LinearLayout>
+
+        <!-- Don't Have an Account? -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Don't have an account?"
+            android:textSize="14sp"
+            android:textColor="@color/gray"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"/>
