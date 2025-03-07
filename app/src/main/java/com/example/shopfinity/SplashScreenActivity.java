@@ -42,7 +42,7 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         // Move to MainActivity after 8 seconds
         new Handler().postDelayed(() -> {
-            startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
+            startActivity(new Intent(SplashScreenActivity.this, OnboardingActivity.class));
             finish();
         }, 8000);
     }
