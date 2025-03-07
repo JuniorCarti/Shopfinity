@@ -20,3 +20,10 @@ local.properties
 /.idea/runConfigurations.xml
 /.idea/vcs.xml
 
+# Exclude Firebase configuration files
+/app/google-services.json
+/app/google-services-1.json
+
+# Exclude build folders
+/app/build
+
