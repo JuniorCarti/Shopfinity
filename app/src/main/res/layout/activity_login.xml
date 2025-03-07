@@ -67,3 +67,12 @@
             android:textColor="@color/yellow"
             android:layout_marginTop="10dp"
             android:layout_gravity="end"/>
+        <!-- Login Button -->
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Login"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/yellow"/>
