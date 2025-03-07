@@ -21,3 +21,14 @@
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
             android:layout_gravity="center"/>
+
+        <!-- Welcome Back -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome Back!"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"/>
