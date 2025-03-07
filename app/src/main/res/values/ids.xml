@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="counterTextView" type="id">counterTextView</item>
-    <item name="skipButton" type="id">skipButton</item>
-    <item name="mainHeaderTextView" type="id">mainHeaderTextView</item>
-    <item name="lottieAnimationView" type="id">lottieAnimationView</item>
-    <item name="subtextTextView" type="id">subtextTextView</item>
-    <item name="sliderDots" type="id">sliderDots</item>
-    <item name="nextButton" type="id">nextButton</item>
+    <item name="counterTextView" type="id"/>
+    <item name="skipButton" type="id"/>
+    <item name="mainHeaderTextView" type="id"/>
+    <item name="lottieAnimationView" type="id"/>
+    <item name="subtextTextView" type="id"/>
+    <item name="sliderDots" type="id"/>
+    <item name="nextButton" type="id"/>
+    <item name="viewPager" type="id"/>
 </resources>
