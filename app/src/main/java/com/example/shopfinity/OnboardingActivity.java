@@ -1,4 +1,5 @@
 package com.example.shopfinity;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -59,14 +60,14 @@ public class OnboardingActivity extends AppCompatActivity {
         setupSliderDots();
 
         // Handle skip button click
-        skipButton.setOnClickListener(v -> navigateToMainActivity());
+        skipButton.setOnClickListener(v -> navigateToSignUpActivity());
 
         // Handle next button click
         nextButton.setOnClickListener(v -> {
             if (viewPager.getCurrentItem() < fragments.size() - 1) {
                 viewPager.setCurrentItem(viewPager.getCurrentItem() + 1); // Go to next screen
             } else {
-                navigateToMainActivity(); // Go to MainActivity after last screen
+                navigateToSignUpActivity(); // Go to SignUpActivity after last screen
             }
         });
 
@@ -101,8 +102,8 @@ public class OnboardingActivity extends AppCompatActivity {
         }
     }
 
-    private void navigateToMainActivity() {
-        startActivity(new Intent(this, MainActivity.class));
+    private void navigateToSignUpActivity() {
+        startActivity(new Intent(this, SignUpActivity.class));
         finish();
     }
 }
