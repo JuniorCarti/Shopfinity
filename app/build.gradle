@@ -39,6 +39,9 @@ dependencies {
     implementation libs.credentials
     implementation libs.credentials.play.services.auth
     implementation libs.googleid
+    implementation libs.firebase.database
+    implementation libs.play.services.auth
+     implementation libs.material.v190 // Use the latest version
 
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
