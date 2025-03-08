@@ -82,7 +82,7 @@
             android:layout_marginTop="20dp"
             android:text="Login"
             android:textColor="@color/white"
-            android:backgroundTint="@color/yellow"/>
+            android:backgroundTint="@color/button_color"/>
 
         <!-- OR Continue With -->
         <TextView
