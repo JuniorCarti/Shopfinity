@@ -6,6 +6,8 @@
     <color name="button_color">#FFA500</color> <!-- Yellow-Orange button color -->
     <color name="yellow">#FFC107</color>
     <color name="gray">#757575</color>
+    <color name="red">#FF0000</color>
+    <color name="green">#00FF00</color>
 
 
 </resources>
