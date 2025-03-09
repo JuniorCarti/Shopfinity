@@ -46,3 +46,14 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText fullName, email, password, confirmPassword;
     private CheckBox termsCheckbox;
     private Button btnCreateAccount, loginBtn; // Updated to Button
+    private ProgressBar progressBar;
+
+    @SuppressLint("MissingInflatedId")
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_sign_up);
+
+        // Initialize Firebase
+        mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference("users");
