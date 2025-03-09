@@ -169,3 +169,16 @@ public class SignUpActivity extends AppCompatActivity {
                     }
                 });
     }
+
+    // Save User Details to Firebase Realtime Database
+    private void saveUserToDatabase(String userId, String name, String email) {
+        User user = new User(name, email);
+        mDatabase.child(userId).setValue(user)
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(SignUpActivity.this, "User details saved to database.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(SignUpActivity.this, "Failed to save user details: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
