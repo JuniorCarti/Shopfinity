@@ -1,0 +1,8 @@
+<!-- res/values/styles.xml -->
+<resources>
+    <!-- Custom style for rounded corners in TextInputLayout -->
+    <style name="RoundedTextInputLayout" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item> <!-- Adjust the corner radius as needed -->
+    </style>
+</resources>
