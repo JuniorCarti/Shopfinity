@@ -118,3 +118,29 @@ public class SignUpActivity extends AppCompatActivity {
         String strEmail = email.getText().toString().trim();
         String strPassword = password.getText().toString().trim();
         String strConfirmPassword = confirmPassword.getText().toString().trim();
+
+        // Validate Inputs
+        if (TextUtils.isEmpty(strFullName)) {
+            fullName.setError("Full Name is required.");
+            return;
+        }
+
+        if (TextUtils.isEmpty(strEmail) || !Patterns.EMAIL_ADDRESS.matcher(strEmail).matches()) {
+            email.setError("Valid email is required.");
+            return;
+        }
+
+        if (TextUtils.isEmpty(strPassword) || !isPasswordValid(strPassword)) {
+            password.setError("Password must be at least 6 characters with 1 uppercase letter and 1 symbol.");
+            return;
+        }
+
+        if (!strPassword.equals(strConfirmPassword)) {
+            confirmPassword.setError("Passwords do not match.");
+            return;
+        }
+
+        if (!termsCheckbox.isChecked()) {
+            Toast.makeText(this, "Please accept the terms and conditions.", Toast.LENGTH_SHORT).show();
+            return;
+        }
