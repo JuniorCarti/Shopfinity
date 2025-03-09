@@ -83,3 +83,7 @@ public class SignUpActivity extends AppCompatActivity {
             Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
             startActivity(intent);
         });
+
+        // Handle Password Visibility Toggle
+        setupPasswordVisibilityToggle(password);
+        setupPasswordVisibilityToggle(confirmPassword);
