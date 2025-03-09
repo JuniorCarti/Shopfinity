@@ -147,3 +147,25 @@ public class SignUpActivity extends AppCompatActivity {
 
         // Show Progress Bar
         progressBar.setVisibility(View.VISIBLE);
+
+        // Create User with Firebase Auth
+        mAuth.createUserWithEmailAndPassword(strEmail, strPassword)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign-Up Success
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            saveUserToDatabase(user.getUid(), strFullName, strEmail);
+                            Toast.makeText(SignUpActivity.this, "Account created successfully.", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(SignUpActivity.this, MainActivity.class));
+                            finish();
+                        } else {
+                            // Sign-Up Failed
+                            Toast.makeText(SignUpActivity.this, "Authentication failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                        // Hide Progress Bar
+                        progressBar.setVisibility(View.GONE);
+                    }
+                });
+    }
