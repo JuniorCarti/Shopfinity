@@ -91,3 +91,24 @@ public class SignUpActivity extends AppCompatActivity {
         // Google Sign-In Button
         findViewById(R.id.googleSignIn).setOnClickListener(v -> signInWithGoogle());
     }
+    // Toggle Password Visibility
+    @SuppressLint("ClickableViewAccessibility")
+    private void setupPasswordVisibilityToggle(EditText editText) {
+        editText.setOnTouchListener((v, event) -> {
+            final int DRAWABLE_RIGHT = 2;
+            if (event.getAction() == MotionEvent.ACTION_UP) {
+                if (event.getRawX() >= (editText.getRight() - editText.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                    // Toggle password visibility
+                    if (editText.getTransformationMethod() == PasswordTransformationMethod.getInstance()) {
+                        editText.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                        editText.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_eye_off, 0);
+                    } else {
+                        editText.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                        editText.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_eye, 0);
+                    }
+                    return true;
+                }
+            }
+            return false;
+        });
+    }
