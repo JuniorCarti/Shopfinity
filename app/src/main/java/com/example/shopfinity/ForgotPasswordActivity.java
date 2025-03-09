@@ -24,3 +24,11 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_forgot_password);
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
+
+        // Initialize UI elements
+        emailInput = findViewById(R.id.email_input);
+        tvMessage = findViewById(R.id.tvMessage);
+        btnSubmit = findViewById(R.id.btnSubmit);
+
+        btnSubmit.setOnClickListener(v -> resetPassword());
+    }
