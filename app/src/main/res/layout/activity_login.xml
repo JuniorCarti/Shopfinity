@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fillViewport="true"
     android:background="@color/white">
 
@@ -33,29 +33,35 @@
             android:layout_marginTop="10dp"
             android:layout_gravity="center"/>
 
-        <!-- Username or Email Input -->
-        <EditText
-            android:id="@+id/email"
+        <!-- Email Input with Floating Label -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="Username or Email"
-            android:drawableStart="@drawable/ic_email"
-            android:paddingStart="12dp"
-            android:background="@drawable/edittext_background"/>
+            app:endIconMode="clear_text">
 
-        <!-- Password Input -->
-        <EditText
-            android:id="@+id/password"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email or Username"
+                android:inputType="textEmailAddress"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Password Input with Floating Label -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:drawableStart="@drawable/ic_lock"
-            android:drawableEnd="@drawable/ic_eye"
-            android:paddingStart="12dp"
-            android:background="@drawable/edittext_background"/>
+            app:endIconMode="password_toggle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textPassword"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Forgot Password -->
         <TextView
@@ -67,6 +73,8 @@
             android:textColor="@color/button_color"
             android:layout_marginTop="10dp"
             android:layout_gravity="end"/>
+
+        <!-- Progress Bar -->
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"
@@ -74,6 +82,7 @@
             android:layout_gravity="center"
             android:visibility="gone"
             android:layout_marginTop="20dp"/>
+
         <!-- Login Button -->
         <Button
             android:id="@+id/btnLogin"
@@ -120,6 +129,7 @@
                 android:padding="8dp"
                 android:adjustViewBounds="true"
                 android:layout_marginEnd="16dp"/>
+
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
@@ -128,6 +138,7 @@
                 android:padding="8dp"
                 android:adjustViewBounds="true"
                 android:layout_marginEnd="16dp"/>
+
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
