@@ -39,3 +39,12 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnLogin;
     private TextView forgotPassword, signUp;
     private ProgressBar progressBar;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+
+        // Initialize Firebase
+        mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference("users");
