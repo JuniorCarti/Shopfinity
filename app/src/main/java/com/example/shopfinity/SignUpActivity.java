@@ -64,3 +64,13 @@ public class SignUpActivity extends AppCompatActivity {
                 .requestEmail()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+        // Initialize UI Components
+        fullName = findViewById(R.id.fullName);
+        email = findViewById(R.id.email);
+        password = findViewById(R.id.password);
+        confirmPassword = findViewById(R.id.confirmPassword);
+        termsCheckbox = findViewById(R.id.termsCheckbox);
+        btnCreateAccount = findViewById(R.id.btnCreateAccount);
+        loginBtn = findViewById(R.id.loginBtn); // Updated to Button
+        progressBar = findViewById(R.id.progressBar);
