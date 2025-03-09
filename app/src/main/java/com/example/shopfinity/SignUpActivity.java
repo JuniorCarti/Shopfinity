@@ -112,3 +112,9 @@ public class SignUpActivity extends AppCompatActivity {
             return false;
         });
     }
+    // Create Account with Email/Password
+    private void createAccount() {
+        String strFullName = fullName.getText().toString().trim();
+        String strEmail = email.getText().toString().trim();
+        String strPassword = password.getText().toString().trim();
+        String strConfirmPassword = confirmPassword.getText().toString().trim();
