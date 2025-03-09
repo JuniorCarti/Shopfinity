@@ -42,6 +42,7 @@ dependencies {
     implementation libs.firebase.database
     implementation libs.play.services.auth
      implementation libs.material.v190 // Use the latest version
+    implementation libs.material
 
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
