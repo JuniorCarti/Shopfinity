@@ -87,3 +87,7 @@ public class SignUpActivity extends AppCompatActivity {
         // Handle Password Visibility Toggle
         setupPasswordVisibilityToggle(password);
         setupPasswordVisibilityToggle(confirmPassword);
+
+        // Google Sign-In Button
+        findViewById(R.id.googleSignIn).setOnClickListener(v -> signInWithGoogle());
+    }
