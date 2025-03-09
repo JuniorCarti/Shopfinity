@@ -32,3 +32,24 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
         btnSubmit.setOnClickListener(v -> resetPassword());
     }
+
+    private void resetPassword() {
+        String email = emailInput.getText().toString().trim();
+
+        if (TextUtils.isEmpty(email)) {
+            Toast.makeText(this, "Please enter your email", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        mAuth.sendPasswordResetEmail(email)
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        tvMessage.setText("*Password reset instructions sent to " + email);
+                        tvMessage.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
+                    } else {
+                        tvMessage.setText("*Failed to send reset instructions. Try again.");
+                        tvMessage.setTextColor(getResources().getColor(android.R.color.holo_red_dark));
+                    }
+                });
+    }
+}
