@@ -182,3 +182,11 @@ public class SignUpActivity extends AppCompatActivity {
                     }
                 });
     }
+
+    // Password Validation
+    private boolean isPasswordValid(String password) {
+        return password.length() >= 6 &&
+                !password.equals(password.toLowerCase()) && // At least 1 uppercase letter
+                password.matches(".*[!@#$%^&*()_+].*"); // At least 1 symbol
+    }
+
