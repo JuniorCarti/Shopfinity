@@ -74,3 +74,6 @@ public class SignUpActivity extends AppCompatActivity {
         btnCreateAccount = findViewById(R.id.btnCreateAccount);
         loginBtn = findViewById(R.id.loginBtn); // Updated to Button
         progressBar = findViewById(R.id.progressBar);
+
+        // Set Click Listeners
+        btnCreateAccount.setOnClickListener(v -> createAccount());
