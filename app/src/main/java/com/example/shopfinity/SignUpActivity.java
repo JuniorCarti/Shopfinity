@@ -77,3 +77,9 @@ public class SignUpActivity extends AppCompatActivity {
 
         // Set Click Listeners
         btnCreateAccount.setOnClickListener(v -> createAccount());
+
+        // Handle Login Button Click
+        loginBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+            startActivity(intent);
+        });
