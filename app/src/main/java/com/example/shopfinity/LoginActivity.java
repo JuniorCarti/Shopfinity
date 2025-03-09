@@ -55,3 +55,16 @@ public class LoginActivity extends AppCompatActivity {
                 .requestEmail()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+// Initialize UI Components
+        email = findViewById(R.id.email);
+        password = findViewById(R.id.password);
+        btnLogin = findViewById(R.id.btnLogin);
+        forgotPassword = findViewById(R.id.forgotPassword);
+        signUp = findViewById(R.id.signUp);
+        progressBar = findViewById(R.id.progressBar);
+
+        // Set Click Listeners
+        btnLogin.setOnClickListener(v -> loginUser());
+        signUp.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, SignUpActivity.class)));
+        forgotPassword.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class)));
+    }
