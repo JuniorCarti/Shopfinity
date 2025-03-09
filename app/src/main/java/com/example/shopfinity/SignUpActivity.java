@@ -144,3 +144,6 @@ public class SignUpActivity extends AppCompatActivity {
             Toast.makeText(this, "Please accept the terms and conditions.", Toast.LENGTH_SHORT).show();
             return;
         }
+
+        // Show Progress Bar
+        progressBar.setVisibility(View.VISIBLE);
