@@ -189,4 +189,68 @@ public class SignUpActivity extends AppCompatActivity {
                 !password.equals(password.toLowerCase()) && // At least 1 uppercase letter
                 password.matches(".*[!@#$%^&*()_+].*"); // At least 1 symbol
     }
+    // Google Sign-In
+    private void signInWithGoogle() {
+        // Show Progress Bar
+        progressBar.setVisibility(View.VISIBLE);
 
+        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+        startActivityForResult(signInIntent, RC_SIGN_IN);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == RC_SIGN_IN) {
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            handleGoogleSignInResult(task);
+        }
+    }
+
+    private void handleGoogleSignInResult(Task<GoogleSignInAccount> completedTask) {
+        try {
+            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
+            firebaseAuthWithGoogle(account.getIdToken());
+        } catch (ApiException e) {
+            // Hide Progress Bar on error
+            progressBar.setVisibility(View.GONE);
+            Toast.makeText(this, "Google Sign-In failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void firebaseAuthWithGoogle(String idToken) {
+        AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Google Sign-In Success
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            saveUserToDatabase(user.getUid(), user.getDisplayName(), user.getEmail());
+                            Toast.makeText(SignUpActivity.this, "Google Sign-In successful.", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(SignUpActivity.this, MainActivity.class));
+                            finish();
+                        } else {
+                            // Google Sign-In Failed
+                            Toast.makeText(SignUpActivity.this, "Google Sign-In failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                        // Hide Progress Bar
+                        progressBar.setVisibility(View.GONE);
+                    }
+                });
+    }
+
+    // User Model Class
+    public static class User {
+        public String name, email;
+
+        public User() {}
+
+        public User(String name, String email) {
+            this.name = name;
+            this.email = email;
+        }
+    }
+}
