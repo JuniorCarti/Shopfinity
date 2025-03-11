@@ -125,3 +125,15 @@
             app:layout_constraintTop_toBottomOf="@id/searchBar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- "All Featured Items" Text (Left Side) -->
+            <TextView
+                android:id="@+id/featuredText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All Featured Items"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
