@@ -65,3 +65,30 @@ public class HomeFragment extends Fragment {
         micIcon.setOnClickListener(v -> {
             // Placeholder: Implement Speech Recognition Here
         });
+
+        // Implement Search Functionality
+        searchEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Not needed
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Call method to filter RecyclerView based on search query
+                performSearch(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Not needed
+            }
+        });
+    }
+
+    // Method to perform search (implement Firestore filtering here)
+    private void performSearch(String query) {
+        // TODO: Implement Firestore query to fetch and update RecyclerView
+    }
+}
+
