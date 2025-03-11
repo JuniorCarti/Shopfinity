@@ -44,6 +44,9 @@ dependencies {
      implementation libs.material.v190 // Use the latest version
     implementation libs.material
 
+    implementation libs.viewpager2 //for sliders
+
+
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
