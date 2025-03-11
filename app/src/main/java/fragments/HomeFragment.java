@@ -47,3 +47,21 @@ public class HomeFragment extends Fragment {
         userIcon = view.findViewById(R.id.userIcon);
         searchEditText = view.findViewById(R.id.searchEditText);
         micIcon = view.findViewById(R.id.micIcon);
+
+        // Handle Drawer Icon Click (Opens Navigation Drawer)
+        drawerIcon.setOnClickListener(v -> {
+            if (drawerLayout != null) {
+                drawerLayout.openDrawer(navigationView);
+            }
+        });
+
+        // Handle User Icon Click (Navigates to ProfileActivity)
+        userIcon.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), ProfileActivity.class);
+            startActivity(intent);
+        });
+
+        // Handle Mic Icon Click (TODO: Implement voice search functionality)
+        micIcon.setOnClickListener(v -> {
+            // Placeholder: Implement Speech Recognition Here
+        });
