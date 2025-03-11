@@ -36,8 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 9001;
 
     private EditText email, password;
-    private Button btnLogin;
-    private TextView forgotPassword, signUp;
+    private TextView signUp;
     private ProgressBar progressBar;
 
     @Override
@@ -58,8 +57,8 @@ public class LoginActivity extends AppCompatActivity {
 // Initialize UI Components
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
-        btnLogin = findViewById(R.id.btnLogin);
-        forgotPassword = findViewById(R.id.forgotPassword);
+        Button btnLogin = findViewById(R.id.btnLogin);
+        TextView forgotPassword = findViewById(R.id.forgotPassword);
         signUp = findViewById(R.id.signUp);
         progressBar = findViewById(R.id.progressBar);
 
