@@ -92,3 +92,20 @@ public class HomeFragment extends Fragment {
 
         // Load Products from Firestore
         loadProducts();
+
+        // Handle Drawer Icon Click
+        drawerIcon.setOnClickListener(v -> {
+            if (getActivity() instanceof MainActivity) {
+                ((MainActivity) getActivity()).openDrawer();
+            }
+        });
+
+        // Handle User Icon Click (Navigates to ProfileActivity)
+        userIcon.setOnClickListener(v -> startActivity(new Intent(getActivity(), ProfileActivity.class)));
+
+        // Handle Mic Icon Click (TODO: Implement voice search functionality)
+        micIcon.setOnClickListener(v -> {
+            // Placeholder: Implement Speech Recognition Here
+            Toast.makeText(getContext(), "Voice search coming soon!", Toast.LENGTH_SHORT).show();
+        });
+
