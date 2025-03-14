@@ -115,3 +115,24 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         productList = newList;
         notifyDataSetChanged(); // Replace with DiffUtil for better performance
     }
+    public static class ProductViewHolder extends RecyclerView.ViewHolder {
+        ImageView productImage, wishlistButton, cartIcon;
+        TextView productName, productBrand, productDescription, productPrice, productDiscountPrice, productRating, bestsellerBadge;
+        View cartLayout;
+
+        public ProductViewHolder(@NonNull View itemView) {
+            super(itemView);
+            productImage = itemView.findViewById(R.id.productImage);
+            wishlistButton = itemView.findViewById(R.id.wishlistButton);
+            cartIcon = itemView.findViewById(R.id.cartIcon);
+            cartLayout = itemView.findViewById(R.id.cartLayout);
+            productName = itemView.findViewById(R.id.productName);
+            productBrand = itemView.findViewById(R.id.productBrand);
+            productDescription = itemView.findViewById(R.id.productDescription);
+            productPrice = itemView.findViewById(R.id.productPrice);
+            productDiscountPrice = itemView.findViewById(R.id.productDiscountPrice);
+            productRating = itemView.findViewById(R.id.productRating);
+            bestsellerBadge = itemView.findViewById(R.id.bestsellerBadge);
+        }
+    }
+}
