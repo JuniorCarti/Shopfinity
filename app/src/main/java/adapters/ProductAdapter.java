@@ -21,3 +21,21 @@ import java.text.DecimalFormat;
 import java.util.List;
 
 import models.Product;
+
+public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
+
+    private final Context context;
+    private List<Product> productList;
+    private final OnProductClickListener listener;
+    private final DecimalFormat priceFormat = new DecimalFormat("#,##0.00"); // Format prices
+
+    public interface OnProductClickListener {
+        void onWishlistClick(Product product);
+        void onAddToCartClick(Product product);
+    }
+
+    public ProductAdapter(Context context, List<Product> productList, OnProductClickListener listener) {
+        this.context = context;
+        this.productList = productList;
+        this.listener = listener;
+    }
