@@ -58,3 +58,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                     .error(R.drawable.image_error) // Error image if fails
                     .into(holder.productImage);
         }
+        // Bind product data to views
+        holder.productName.setText(product.getName());
+        holder.productBrand.setText(product.getBrand());
+        holder.productDescription.setText(product.getDescription());
+        holder.productPrice.setText("Ksh " + priceFormat.format(product.getPrice()));
