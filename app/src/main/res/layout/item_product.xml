@@ -7,3 +7,11 @@
     android:orientation="vertical"
     android:background="@drawable/product_item_background"
     android:elevation="2dp">
+    <!-- Product Image -->
+    <ImageView
+        android:id="@+id/productImage"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:scaleType="centerCrop"
+        android:contentDescription="Product Image"
+        android:background="@drawable/image_placeholder" />
