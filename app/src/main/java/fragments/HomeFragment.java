@@ -109,3 +109,18 @@ public class HomeFragment extends Fragment {
             Toast.makeText(getContext(), "Voice search coming soon!", Toast.LENGTH_SHORT).show();
         });
 
+        // Implement Search Functionality
+        searchEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                performSearch(s.toString()); // Filter RecyclerView based on search query
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
+    }
+
