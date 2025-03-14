@@ -154,5 +154,22 @@ public class HomeFragment extends Fragment {
 
         greetingTextView.setText(spannableGreeting);
     }
-
+    // Load Products from Firestore
+    private void loadProducts() {
+        db.collection("Exercise Books").get().addOnCompleteListener(task -> {
+            if (task.isSuccessful() && task.getResult() != null) {
+                productList.clear();
+                for (QueryDocumentSnapshot document : task.getResult()) {
+                    Product product = document.toObject(Product.class);
+                    productList.add(product);
+                }
+                productAdapter.notifyDataSetChanged();
+            } else {
+                if (task.getException() != null) {
+                    Toast.makeText(getContext(), "Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    Log.e("FirestoreError", "Failed to load products", task.getException());
+                }
+            }
+        });
+    }
 
