@@ -63,3 +63,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         holder.productBrand.setText(product.getBrand());
         holder.productDescription.setText(product.getDescription());
         holder.productPrice.setText("Ksh " + priceFormat.format(product.getPrice()));
+        // Handle discount visibility
+        if (product.getDiscountPrice() > 0 && product.getDiscountPrice() < product.getPrice()) {
+            holder.productDiscountPrice.setText("Ksh " + priceFormat.format(product.getDiscountPrice()));
+            holder.productDiscountPrice.setVisibility(View.VISIBLE);
+            holder.productPrice.setPaintFlags(holder.productPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG); // Strike-through original price
+        } else {
+            holder.productDiscountPrice.setVisibility(View.GONE);
+            holder.productPrice.setPaintFlags(0);
+        }
