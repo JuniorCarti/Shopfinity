@@ -124,3 +124,35 @@ public class HomeFragment extends Fragment {
         });
     }
 
+    // Display Greeting with User's Name and Time of Day
+    private void displayGreeting() {
+        FirebaseUser user = auth.getCurrentUser();
+        String name = (user != null && user.getDisplayName() != null && !user.getDisplayName().isEmpty())
+                ? user.getDisplayName() : "User";
+
+        // Get the current hour
+        int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+        String greeting;
+
+        if (hour >= 5 && hour < 12) {
+            greeting = "Good Morning, ";
+        } else if (hour >= 12 && hour < 17) {
+            greeting = "Good Afternoon, ";
+        } else if (hour >= 17 && hour < 21) {
+            greeting = "Good Evening, ";
+        } else {
+            greeting = "Good Night, ";
+        }
+
+        // Combine greeting and name
+        SpannableString spannableGreeting = new SpannableString(greeting + name);
+
+        // Set a different color for the name
+        int nameColor = ContextCompat.getColor(requireContext(), R.color.blue);
+        spannableGreeting.setSpan(new ForegroundColorSpan(nameColor), greeting.length(),
+                greeting.length() + name.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        greetingTextView.setText(spannableGreeting);
+    }
+
+
