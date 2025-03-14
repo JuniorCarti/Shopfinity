@@ -51,3 +51,10 @@
         android:maxLines="2"
         android:ellipsize="end"
         android:paddingTop="2dp" />
+    <!-- Product Price and Rating (Aligned Horizontally) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="4dp">
+
