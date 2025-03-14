@@ -105,3 +105,13 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             }
         });
     }
+    @Override
+    public int getItemCount() {
+        return productList.size();
+    }
+
+    // Efficiently update list using DiffUtil (if implemented in future)
+    public void updateList(List<Product> newList) {
+        productList = newList;
+        notifyDataSetChanged(); // Replace with DiffUtil for better performance
+    }
