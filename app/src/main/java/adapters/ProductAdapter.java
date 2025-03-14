@@ -39,3 +39,22 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         this.productList = productList;
         this.listener = listener;
     }
+    @NonNull
+    @Override
+    public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.item_product, parent, false);
+        return new ProductViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
+        Product product = productList.get(position);
+
+        // Load product image (first image from list)
+        if (product.getImageUrls() != null && !product.getImageUrls().isEmpty()) {
+            Glide.with(context)
+                    .load(product.getImageUrls().get(0))
+                    .placeholder(R.drawable.image_placeholder) // Placeholder while loading
+                    .error(R.drawable.image_error) // Error image if fails
+                    .into(holder.productImage);
+        }
