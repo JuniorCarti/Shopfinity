@@ -28,3 +28,14 @@
         android:paddingTop="6dp"
         android:maxLines="2"
         android:ellipsize="end" />
+    <!-- Product Brand -->
+    <TextView
+        android:id="@+id/productBrand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Brand"
+        android:textSize="13sp"
+        android:textColor="@color/grey"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:paddingTop="2dp" />
