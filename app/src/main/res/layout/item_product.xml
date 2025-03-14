@@ -143,5 +143,13 @@
             android:clickable="true"
             android:focusable="true">
 
+            <ImageView
+                android:id="@+id/cartIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_cart"
+                android:contentDescription="Cart Icon"
+                app:tint="@color/white" />
+
 
 
