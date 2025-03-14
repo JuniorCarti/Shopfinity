@@ -19,6 +19,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:padding="16dp"
+            android:elevation="4dp"
+            android:background="@color/white"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
@@ -29,24 +31,15 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/ic_menu"
-                android:contentDescription="Menu"
+                android:contentDescription="Open navigation drawer"
+                android:focusable="true"
+                android:clickable="true"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" />
-            <!-- User Account Icon -->
-            <ImageView
-                android:id="@+id/userIcon"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/ic_profile"
-                android:contentDescription="User Profile"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginStart="16dp" />
 
             <!-- Greeting TextView -->
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/greetingText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -59,6 +52,19 @@
                 android:layout_marginStart="16dp"
                 app:layout_constraintEnd_toStartOf="@id/userIcon" />
 
+            <!-- User Account Icon -->
+            <ImageView
+                android:id="@+id/userIcon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_profile"
+                android:contentDescription="User Profile"
+                android:focusable="true"
+                android:clickable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="16dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- Search Bar -->
@@ -69,6 +75,7 @@
             android:background="@drawable/search_bar_background"
             android:padding="8dp"
             android:layout_margin="16dp"
+            android:elevation="4dp"
             app:layout_constraintTop_toBottomOf="@id/topBar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
@@ -80,6 +87,8 @@
                 android:layout_height="24dp"
                 android:src="@drawable/ic_search"
                 android:contentDescription="Search Icon"
+                android:focusable="true"
+                android:clickable="true"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -102,6 +111,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/micIcon" />
+
             <!-- Mic Icon -->
             <ImageView
                 android:id="@+id/micIcon"
@@ -109,11 +119,12 @@
                 android:layout_height="24dp"
                 android:src="@drawable/ic_mic"
                 android:contentDescription="Mic Icon"
+                android:focusable="true"
+                android:clickable="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginEnd="8dp" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- Featured Items & Filter Button Section -->
@@ -122,12 +133,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
+            android:padding="8dp"
             app:layout_constraintTop_toBottomOf="@id/searchBar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <!-- "All Featured Items" Text (Left Side) -->
-            <TextView
+            <!-- "All Featured Items" Text -->
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/featuredText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -138,56 +150,35 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" />
 
-            <!-- Filter Button (Right Side) -->
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <!-- Filter Button -->
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/filterButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="6dp"
-                android:background="@drawable/filter_button_background"
+                android:text="Filter"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:drawableStart="@drawable/ic_filter"
+                android:drawablePadding="8dp"
+                android:padding="8dp"
+                app:iconTint="@color/white"
+                app:backgroundTint="@color/yellow"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent">
-
-                <!-- Filter Icon -->
-                <ImageView
-                    android:id="@+id/filterIcon"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_filter"
-                    android:contentDescription="Filter Icon"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent" />
-
-                <!-- Filter Text -->
-                <TextView
-                    android:id="@+id/filterText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Filter"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_marginStart="8dp"
-                    app:layout_constraintStart_toEndOf="@id/filterIcon"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
+                app:layout_constraintBottom_toBottomOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-        <!-- Placeholder Content -->
-        <TextView
-            android:id="@+id/homeContent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Welcome to Home Fragment"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/featuredSection" />
 
+        <!-- RecyclerView for Product List -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintTop_toBottomOf="@id/featuredSection"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Navigation Drawer -->
@@ -198,5 +189,4 @@
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/nav_menu" />
-
 </androidx.drawerlayout.widget.DrawerLayout>
