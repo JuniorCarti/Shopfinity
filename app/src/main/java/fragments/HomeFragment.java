@@ -37,3 +37,14 @@ import java.util.List;
 
 import adapters.ProductAdapter;
 import models.Product;
+
+public class HomeFragment extends Fragment {
+
+    private ImageView drawerIcon, userIcon, micIcon;
+    private EditText searchEditText;
+    private TextView greetingTextView;
+    private RecyclerView recyclerView;
+    private ProductAdapter productAdapter;
+    private List<Product> productList = new ArrayList<>();
+    private FirebaseAuth auth;
+    private FirebaseFirestore db;
