@@ -7,6 +7,7 @@
     android:orientation="vertical"
     android:background="@drawable/product_item_background"
     android:elevation="2dp">
+
     <!-- Product Image -->
     <ImageView
         android:id="@+id/productImage"
@@ -28,6 +29,7 @@
         android:paddingTop="6dp"
         android:maxLines="2"
         android:ellipsize="end" />
+
     <!-- Product Brand -->
     <TextView
         android:id="@+id/productBrand"
@@ -51,6 +53,7 @@
         android:maxLines="2"
         android:ellipsize="end"
         android:paddingTop="2dp" />
+
     <!-- Product Price and Rating (Aligned Horizontally) -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -58,11 +61,12 @@
         android:orientation="horizontal"
         android:paddingTop="4dp">
 
-        <!-- Product Price -->
+        <!-- Price Section (Left) -->
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_weight="1">
 
             <!-- Original Price -->
             <TextView
@@ -83,18 +87,20 @@
                 android:textSize="12sp"
                 android:textColor="@color/red"
                 android:textStyle="bold"
-                android:paddingStart="8dp"
+                android:paddingStart="6dp"
                 android:drawableStart="@drawable/ic_discount"
                 android:drawablePadding="4dp" />
         </LinearLayout>
-        <!-- Product Rating -->
+
+        <!-- Product Rating (Far Right) -->
         <TextView
             android:id="@+id/productRating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="4.5 ★ (100)"
             android:textSize="14sp"
-            android:textColor="@color/yellow" />
+            android:textColor="@color/yellow"
+            android:layout_gravity="end" />
     </LinearLayout>
 
     <!-- Bestseller Badge -->
@@ -111,37 +117,27 @@
         android:visibility="gone"
         android:layout_marginTop="4dp" />
 
-    <!-- Action Buttons: Wishlist & Add to Cart -->
+    <!-- Action Buttons: Add to Cart & Wishlist -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center"
+        android:gravity="center_vertical"
         android:paddingTop="10dp"
         android:paddingBottom="6dp">
 
-        <!-- Wishlist Button -->
-        <ImageButton
-            android:id="@+id/wishlistButton"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_wishlist_selected"
-            android:contentDescription="Add to Wishlist"
-            android:layout_marginEnd="10dp"
-            app:tint="@color/red" />
-
-        <!-- Add to Cart Button -->
+        <!-- Add to Cart Button (Far Left) -->
         <LinearLayout
             android:id="@+id/cartLayout"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="40dp"
             android:orientation="horizontal"
             android:gravity="center"
             android:padding="8dp"
             android:background="@drawable/cart_button_background"
             android:clickable="true"
-            android:focusable="true">
+            android:focusable="true"
+            android:layout_weight="1">
 
             <ImageView
                 android:id="@+id/cartIcon"
@@ -161,9 +157,17 @@
                 android:textColor="@color/white"
                 android:paddingStart="6dp" />
         </LinearLayout>
+
+        <!-- Wishlist Button (To the Right of Add to Cart) -->
+        <ImageButton
+            android:id="@+id/wishlistButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_wishlist_selected"
+            android:contentDescription="Add to Wishlist"
+            app:tint="@color/red"
+            android:layout_marginStart="10dp" />
     </LinearLayout>
 
 </LinearLayout>
-
-
-
