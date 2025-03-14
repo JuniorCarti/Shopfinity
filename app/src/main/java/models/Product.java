@@ -28,3 +28,26 @@ public class Product implements Serializable {
 
     @PropertyName("best_seller")
     private boolean bestSeller;
+
+    // Empty constructor (required for Firestore)
+    public Product() {}
+
+    // Constructor
+    public Product(String id, String name, String brand, String category, String subcategory,
+                   String description, double price, double discountPrice, double rating,
+                   int reviews, int stock, List<String> imageUrls, Map<String, Object> specifications, boolean bestSeller) {
+        this.id = id;
+        this.name = name;
+        this.brand = brand;
+        this.category = category;
+        this.subcategory = subcategory;
+        this.description = description;
+        this.price = price;
+        this.discountPrice = discountPrice;
+        this.rating = rating;
+        this.reviews = reviews;
+        this.stock = stock;
+        this.imageUrls = imageUrls;
+        this.specifications = specifications;
+        this.bestSeller = bestSeller;
+    }
