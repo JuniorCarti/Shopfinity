@@ -111,5 +111,14 @@
         android:visibility="gone"
         android:layout_marginTop="4dp" />
 
+    <!-- Action Buttons: Wishlist & Add to Cart -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:paddingBottom="6dp">
+
 
 
