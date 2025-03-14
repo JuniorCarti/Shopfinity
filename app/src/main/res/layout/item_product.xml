@@ -87,6 +87,15 @@
                 android:drawableStart="@drawable/ic_discount"
                 android:drawablePadding="4dp" />
         </LinearLayout>
+        <!-- Product Rating -->
+        <TextView
+            android:id="@+id/productRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4.5 ★ (100)"
+            android:textSize="14sp"
+            android:textColor="@color/yellow" />
+    </LinearLayout>
 
 
 
