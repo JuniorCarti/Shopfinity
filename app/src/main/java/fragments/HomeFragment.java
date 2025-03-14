@@ -74,3 +74,21 @@ public class HomeFragment extends Fragment {
 
         // Display User Greeting
         displayGreeting();
+
+        // Setup RecyclerView
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        productAdapter = new ProductAdapter(getContext(), productList, new ProductAdapter.OnProductClickListener() {
+            @Override
+            public void onWishlistClick(Product product) {
+                Toast.makeText(getContext(), "Added to Wishlist: " + product.getName(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onAddToCartClick(Product product) {
+                Toast.makeText(getContext(), "Added to Cart: " + product.getName(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        recyclerView.setAdapter(productAdapter);
+
+        // Load Products from Firestore
+        loadProducts();
