@@ -62,3 +62,15 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        // Initialize Views
+        drawerIcon = view.findViewById(R.id.drawerIcon);
+        userIcon = view.findViewById(R.id.userIcon);
+        searchEditText = view.findViewById(R.id.searchEditText);
+        micIcon = view.findViewById(R.id.micIcon);
+        greetingTextView = view.findViewById(R.id.greetingText);
+        recyclerView = view.findViewById(R.id.recyclerView);
+        auth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+
+        // Display User Greeting
+        displayGreeting();
