@@ -173,3 +173,18 @@ public class HomeFragment extends Fragment {
         });
     }
 
+    // Filter Products Based on Search Query
+    private void performSearch(String query) {
+        List<Product> filteredList = new ArrayList<>();
+        for (Product product : productList) {
+            if ((product.getName() != null && product.getName().toLowerCase().contains(query.toLowerCase())) ||
+                    (product.getCategory() != null && product.getCategory().toLowerCase().contains(query.toLowerCase())) ||
+                    (product.getDescription() != null && product.getDescription().toLowerCase().contains(query.toLowerCase())) ||
+                    (product.getBrand() != null && product.getBrand().toLowerCase().contains(query.toLowerCase()))) {
+                filteredList.add(product);
+            }
+        }
+        productAdapter.updateList(filteredList);
+    }
+}
+
