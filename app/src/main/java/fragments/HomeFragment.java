@@ -48,3 +48,17 @@ public class HomeFragment extends Fragment {
     private List<Product> productList = new ArrayList<>();
     private FirebaseAuth auth;
     private FirebaseFirestore db;
+
+
+    public HomeFragment() {
+        // Required empty public constructor
+    }
+
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_home, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
