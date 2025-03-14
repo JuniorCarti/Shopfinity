@@ -82,3 +82,26 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         } else {
             holder.bestsellerBadge.setVisibility(View.GONE);
         }
+        // Open product details on click
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, ProductDetailsActivity.class);
+            intent.putExtra("productId", product.getId());
+            context.startActivity(intent);
+        });
+
+        // Handle wishlist click
+        holder.wishlistButton.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onWishlistClick(product);
+                Toast.makeText(context, "Added to Wishlist", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Handle add to cart click
+        holder.cartLayout.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onAddToCartClick(product);
+                Toast.makeText(context, "Added to Cart", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
