@@ -97,5 +97,19 @@
             android:textColor="@color/yellow" />
     </LinearLayout>
 
+    <!-- Bestseller Badge -->
+    <TextView
+        android:id="@+id/bestsellerBadge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bestseller"
+        android:textSize="12sp"
+        android:textColor="@color/white"
+        android:background="@drawable/bestseller_badge_background"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="4dp"
+        android:visibility="gone"
+        android:layout_marginTop="4dp" />
+
 
 
