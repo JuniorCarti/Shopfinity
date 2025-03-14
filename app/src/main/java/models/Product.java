@@ -51,3 +51,13 @@ public class Product implements Serializable {
         this.specifications = specifications;
         this.bestSeller = bestSeller;
     }
+
+    // Getters and Setters
+    public String getId() { return id; }
+    public String getName() { return name; }
+    public String getBrand() { return brand; }
+    public String getCategory() { return category; }
+    public String getSubcategory() { return subcategory; }
+    public String getDescription() { return description; }
+    public double getPrice() { return price; }
+
