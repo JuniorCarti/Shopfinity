@@ -151,5 +151,19 @@
                 android:contentDescription="Cart Icon"
                 app:tint="@color/white" />
 
+            <TextView
+                android:id="@+id/addToCartText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add to Cart"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:paddingStart="6dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
+
 
 
