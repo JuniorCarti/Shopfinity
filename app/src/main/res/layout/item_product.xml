@@ -74,4 +74,19 @@
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
+            <!-- Discount Price -->
+            <TextView
+                android:id="@+id/productDiscountPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ksh 0.00"
+                android:textSize="12sp"
+                android:textColor="@color/red"
+                android:textStyle="bold"
+                android:paddingStart="8dp"
+                android:drawableStart="@drawable/ic_discount"
+                android:drawablePadding="4dp" />
+        </LinearLayout>
+
+
 
