@@ -15,3 +15,16 @@
         android:scaleType="centerCrop"
         android:contentDescription="Product Image"
         android:background="@drawable/image_placeholder" />
+
+    <!-- Product Name -->
+    <TextView
+        android:id="@+id/productName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Product Name"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:paddingTop="6dp"
+        android:maxLines="2"
+        android:ellipsize="end" />
