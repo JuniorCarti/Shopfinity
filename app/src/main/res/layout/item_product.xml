@@ -120,5 +120,16 @@
         android:paddingTop="10dp"
         android:paddingBottom="6dp">
 
+        <!-- Wishlist Button -->
+        <ImageButton
+            android:id="@+id/wishlistButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_wishlist_selected"
+            android:contentDescription="Add to Wishlist"
+            android:layout_marginEnd="10dp"
+            app:tint="@color/red" />
+
 
 
