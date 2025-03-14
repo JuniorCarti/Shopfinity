@@ -72,3 +72,13 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             holder.productDiscountPrice.setVisibility(View.GONE);
             holder.productPrice.setPaintFlags(0);
         }
+
+        // Bind rating and reviews
+        holder.productRating.setText(String.format("%.1f ★ (%d)", product.getRating(), product.getReviews()));
+
+        // Show bestseller badge if applicable
+        if (product.isBestSeller()) {
+            holder.bestsellerBadge.setVisibility(View.VISIBLE);
+        } else {
+            holder.bestsellerBadge.setVisibility(View.GONE);
+        }
