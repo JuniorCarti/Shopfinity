@@ -8,14 +8,21 @@
     android:background="@drawable/product_item_background"
     android:elevation="2dp">
 
-    <!-- Product Image -->
-    <ImageView
-        android:id="@+id/productImage"
+    <!-- Product Image with Wishlist Button -->
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:scaleType="centerCrop"
-        android:contentDescription="Product Image"
-        android:background="@drawable/image_placeholder" />
+        android:layout_height="180dp">
+
+        <ImageView
+            android:id="@+id/productImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:contentDescription="Product Image"
+            android:background="@drawable/image_placeholder" />
+
+
+    </RelativeLayout>
 
     <!-- Product Name -->
     <TextView
@@ -54,21 +61,21 @@
         android:ellipsize="end"
         android:paddingTop="2dp" />
 
-    <!-- Product Price and Rating (Aligned Horizontally) -->
+    <!-- Product Price and Rating -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="4dp">
+        android:paddingTop="4dp"
+        android:gravity="center_vertical">
 
-        <!-- Price Section (Left) -->
+        <!-- Price Section -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_weight="1">
 
-            <!-- Original Price -->
             <TextView
                 android:id="@+id/productPrice"
                 android:layout_width="wrap_content"
@@ -78,7 +85,6 @@
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
-            <!-- Discount Price -->
             <TextView
                 android:id="@+id/productDiscountPrice"
                 android:layout_width="wrap_content"
@@ -89,18 +95,32 @@
                 android:textStyle="bold"
                 android:paddingStart="6dp"
                 android:drawableStart="@drawable/ic_discount"
-                android:drawablePadding="4dp" />
+                android:drawablePadding="4dp"
+                android:visibility="gone"/>
         </LinearLayout>
 
-        <!-- Product Rating (Far Right) -->
-        <TextView
-            android:id="@+id/productRating"
+        <!-- Dynamic Star Rating Section with Review Count -->
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="4.5 ★ (100)"
-            android:textSize="14sp"
-            android:textColor="@color/yellow"
-            android:layout_gravity="end" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:id="@+id/starContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"/>
+
+            <TextView
+                android:id="@+id/productRatingCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(120)"
+                android:textSize="12sp"
+                android:textColor="@color/grey"
+                android:layout_marginStart="4dp"/>
+        </LinearLayout>
     </LinearLayout>
 
     <!-- Bestseller Badge -->
@@ -126,7 +146,7 @@
         android:paddingTop="10dp"
         android:paddingBottom="6dp">
 
-        <!-- Add to Cart Button (Far Left) -->
+        <!-- Add to Cart Button -->
         <LinearLayout
             android:id="@+id/cartLayout"
             android:layout_width="0dp"
@@ -158,7 +178,7 @@
                 android:paddingStart="6dp" />
         </LinearLayout>
 
-        <!-- Wishlist Button (To the Right of Add to Cart) -->
+        <!-- Wishlist Button -->
         <ImageButton
             android:id="@+id/wishlistButton"
             android:layout_width="40dp"
