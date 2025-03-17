@@ -186,7 +186,7 @@
             android:background="@android:color/transparent"
             android:src="@drawable/ic_wishlist_selected"
             android:contentDescription="Add to Wishlist"
-            app:tint="@color/red"
+            app:tint="@color/orange"
             android:layout_marginStart="10dp" />
     </LinearLayout>
 

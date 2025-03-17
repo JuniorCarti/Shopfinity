@@ -150,7 +150,7 @@ public class HomeFragment extends Fragment {
 
         // Apply color styling to the name
         SpannableString spannableGreeting = new SpannableString(greeting + name);
-        int nameColor = ContextCompat.getColor(requireContext(), R.color.blue);
+        int nameColor = ContextCompat.getColor(requireContext(), R.color.orange);
         spannableGreeting.setSpan(new ForegroundColorSpan(nameColor), greeting.length(),
                 greeting.length() + name.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
