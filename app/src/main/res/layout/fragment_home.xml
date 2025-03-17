@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:padding="16dp"
-            android:elevation="4dp"
+            android:elevation="6dp"
             android:background="@color/white"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -28,8 +28,8 @@
             <!-- Navigation Drawer Icon -->
             <ImageView
                 android:id="@+id/drawerIcon"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
                 android:src="@drawable/ic_menu"
                 android:contentDescription="Open navigation drawer"
                 android:focusable="true"
@@ -38,7 +38,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" />
 
-            <!-- Greeting TextView -->
+            <!-- Greeting Text -->
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/greetingText"
                 android:layout_width="wrap_content"
@@ -46,36 +46,37 @@
                 android:text="Good Morning, User"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                android:textColor="@color/black"
+                android:fontFamily="sans-serif-medium"
+                android:layout_marginStart="16dp"
                 app:layout_constraintStart_toEndOf="@id/drawerIcon"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginStart="16dp"
                 app:layout_constraintEnd_toStartOf="@id/userIcon" />
 
-            <!-- User Account Icon -->
+            <!-- User Profile Icon -->
             <ImageView
                 android:id="@+id/userIcon"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
                 android:src="@drawable/ic_profile"
                 android:contentDescription="User Profile"
                 android:focusable="true"
                 android:clickable="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginStart="16dp" />
+                app:layout_constraintBottom_toBottomOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- Search Bar -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/searchBar"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="50dp"
             android:background="@drawable/search_bar_background"
-            android:padding="8dp"
+            android:padding="10dp"
             android:layout_margin="16dp"
-            android:elevation="4dp"
+            android:elevation="6dp"
             app:layout_constraintTop_toBottomOf="@id/topBar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
@@ -87,14 +88,12 @@
                 android:layout_height="24dp"
                 android:src="@drawable/ic_search"
                 android:contentDescription="Search Icon"
-                android:focusable="true"
-                android:clickable="true"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginStart="8dp" />
 
-            <!-- Search Input Field -->
+            <!-- Search Input -->
             <EditText
                 android:id="@+id/searchEditText"
                 android:layout_width="0dp"
@@ -102,9 +101,6 @@
                 android:hint="Search for products..."
                 android:textSize="16sp"
                 android:background="@null"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:inputType="text"
                 android:textColor="@android:color/black"
                 android:textColorHint="@android:color/darker_gray"
                 app:layout_constraintStart_toEndOf="@id/searchIcon"
@@ -119,21 +115,21 @@
                 android:layout_height="24dp"
                 android:src="@drawable/ic_mic"
                 android:contentDescription="Mic Icon"
-                android:focusable="true"
-                android:clickable="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginEnd="8dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <!-- Featured Items & Filter Button Section -->
+        <!-- Featured Items & Filter Section -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/featuredSection"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:padding="8dp"
+            android:padding="12dp"
+            android:background="@color/white"
+            android:elevation="6dp"
             app:layout_constraintTop_toBottomOf="@id/searchBar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
@@ -143,29 +139,38 @@
                 android:id="@+id/featuredText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="All Featured Items"
-                android:textSize="18sp"
+                android:text="🔥 All Featured Items"
+                android:textSize="20sp"
                 android:textStyle="bold"
+                android:textColor="@color/black"
+                android:fontFamily="sans-serif-medium"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="16dp" />
 
             <!-- Filter Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/filterButton"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:text="Filter"
                 android:textSize="16sp"
                 android:textStyle="bold"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif-medium"
                 android:drawableStart="@drawable/ic_filter"
                 android:drawablePadding="8dp"
-                android:padding="8dp"
-                app:iconTint="@color/white"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                app:cornerRadius="30dp"
                 app:backgroundTint="@color/yellow"
+                android:elevation="8dp"
+                app:iconTint="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="16dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- RecyclerView for Product List -->
@@ -173,8 +178,7 @@
             android:id="@+id/recyclerView"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_margin="16dp"
             app:layout_constraintTop_toBottomOf="@id/featuredSection"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
