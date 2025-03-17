@@ -18,13 +18,13 @@ public class Product implements Serializable {
     private double discountPrice;
 
     private double rating;
-    private int reviews;
+    private int reviews;  // Keeping it as "reviews" to match your Firestore database
     private int stock;
 
     @PropertyName("image_urls")
     private List<String> imageUrls;
 
-    private Map<String, Object> specifications; // Change to Map
+    private Map<String, Object> specifications;
 
     @PropertyName("best_seller")
     private boolean bestSeller;
@@ -60,17 +60,18 @@ public class Product implements Serializable {
     public String getSubcategory() { return subcategory; }
     public String getDescription() { return description; }
     public double getPrice() { return price; }
+
     @PropertyName("discount_price")
     public double getDiscountPrice() { return discountPrice; }
 
     public double getRating() { return rating; }
-    public int getReviews() { return reviews; }
+    public int getReviews() { return reviews; }  // Keeping "reviews" as per your database
     public int getStock() { return stock; }
 
     @PropertyName("image_urls")
     public List<String> getImageUrls() { return imageUrls; }
 
-    public Map<String, Object> getSpecifications() { return specifications; } // Change to Map
+    public Map<String, Object> getSpecifications() { return specifications; }
 
     @PropertyName("best_seller")
     public boolean isBestSeller() { return bestSeller; }
@@ -87,13 +88,13 @@ public class Product implements Serializable {
     public void setDiscountPrice(double discountPrice) { this.discountPrice = discountPrice; }
 
     public void setRating(double rating) { this.rating = rating; }
-    public void setReviews(int reviews) { this.reviews = reviews; }
+    public void setReviews(int reviews) { this.reviews = reviews; }  // Keeping "reviews"
     public void setStock(int stock) { this.stock = stock; }
 
     @PropertyName("image_urls")
     public void setImageUrls(List<String> imageUrls) { this.imageUrls = imageUrls; }
 
-    public void setSpecifications(Map<String, Object> specifications) { this.specifications = specifications; } // Change to Map
+    public void setSpecifications(Map<String, Object> specifications) { this.specifications = specifications; }
 
     @PropertyName("best_seller")
     public void setBestSeller(boolean bestSeller) { this.bestSeller = bestSeller; }
