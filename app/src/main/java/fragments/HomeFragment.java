@@ -117,7 +117,7 @@ public class HomeFragment extends Fragment {
      */
     private void setupRecyclerView() {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.addItemDecoration(new SpaceItemDecoration(24)); // Add 24dp space between items
+        recyclerView.addItemDecoration(new SpaceItemDecoration(24)); //
 
         productAdapter = new ProductAdapter(getContext(), productList, new ProductAdapter.OnProductClickListener() {
             @Override
