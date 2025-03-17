@@ -118,7 +118,7 @@
             android:layout_marginTop="10dp"
             android:text="Create Account"
             android:textColor="@color/white"
-            android:backgroundTint="@color/button_color"/>
+            android:backgroundTint="@color/orange"/>
 
         <ProgressBar
             android:id="@+id/progressBar"
@@ -147,7 +147,7 @@
             android:layout_marginBottom="10dp"
             android:text="Sign in with Google"
             android:textColor="@color/white"
-            android:backgroundTint="@color/button_color"
+            android:backgroundTint="@color/orange"
             android:drawableStart="@drawable/ic_google"
             android:drawablePadding="8dp"/>
 

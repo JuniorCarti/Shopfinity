@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:text="Skip"
             android:textSize="16sp"
-            android:textColor="@color/yellow"
+            android:textColor="@color/orange"
             android:paddingEnd="16dp"
             android:clickable="true"
             android:focusable="true"/>
@@ -60,7 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Next"
-        android:textColor="@color/yellow"
+        android:textColor="@color/orange"
         android:background="@drawable/outline_button"
         android:gravity="center"
         android:layout_alignParentBottom="true"
