@@ -142,7 +142,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
      * Updates the star rating UI dynamically and sets the review count.
      */
     private void updateStarRating(ProductViewHolder holder, double rating, int reviewCount) {
-        holder.starContainer.removeAllViews(); // Clear previous stars
+        holder.starContainer.removeAllViews();
 
         int fullStars = (int) rating;
         boolean hasHalfStar = (rating - fullStars) >= 0.5;
