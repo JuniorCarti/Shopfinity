@@ -18,7 +18,7 @@ public class Product implements Serializable {
     private double discountPrice;
 
     private double rating;
-    private int reviews;  // Keeping it as "reviews" to match your Firestore database
+    private int reviews;
     private int stock;
 
     @PropertyName("image_urls")
@@ -65,7 +65,7 @@ public class Product implements Serializable {
     public double getDiscountPrice() { return discountPrice; }
 
     public double getRating() { return rating; }
-    public int getReviews() { return reviews; }  // Keeping "reviews" as per your database
+    public int getReviews() { return reviews; }
     public int getStock() { return stock; }
 
     @PropertyName("image_urls")
