@@ -37,6 +37,8 @@ import java.util.List;
 
 import adapters.ProductAdapter;
 import models.Product;
+import utils.SpaceItemDecoration;
+
 
 public class HomeFragment extends Fragment {
 
@@ -48,7 +50,6 @@ public class HomeFragment extends Fragment {
     private List<Product> productList = new ArrayList<>();
     private FirebaseAuth auth;
     private FirebaseFirestore db;
-
 
     public HomeFragment() {
         // Required empty public constructor
@@ -62,6 +63,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         // Initialize Views
         drawerIcon = view.findViewById(R.id.drawerIcon);
         userIcon = view.findViewById(R.id.userIcon);
@@ -69,47 +71,33 @@ public class HomeFragment extends Fragment {
         micIcon = view.findViewById(R.id.micIcon);
         greetingTextView = view.findViewById(R.id.greetingText);
         recyclerView = view.findViewById(R.id.recyclerView);
+
         auth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
-        // Display User Greeting
+        // Display personalized greeting
         displayGreeting();
 
         // Setup RecyclerView
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        productAdapter = new ProductAdapter(getContext(), productList, new ProductAdapter.OnProductClickListener() {
-            @Override
-            public void onWishlistClick(Product product) {
-                Toast.makeText(getContext(), "Added to Wishlist: " + product.getName(), Toast.LENGTH_SHORT).show();
-            }
+        setupRecyclerView();
 
-            @Override
-            public void onAddToCartClick(Product product) {
-                Toast.makeText(getContext(), "Added to Cart: " + product.getName(), Toast.LENGTH_SHORT).show();
-            }
-        });
-        recyclerView.setAdapter(productAdapter);
-
-        // Load Products from Firestore
+        // Load products from Firestore
         loadProducts();
 
-        // Handle Drawer Icon Click
+        // Handle navigation icon click
         drawerIcon.setOnClickListener(v -> {
             if (getActivity() instanceof MainActivity) {
                 ((MainActivity) getActivity()).openDrawer();
             }
         });
 
-        // Handle User Icon Click (Navigates to ProfileActivity)
+        // Handle user icon click (navigates to ProfileActivity)
         userIcon.setOnClickListener(v -> startActivity(new Intent(getActivity(), ProfileActivity.class)));
 
-        // Handle Mic Icon Click (TODO: Implement voice search functionality)
-        micIcon.setOnClickListener(v -> {
-            // Placeholder: Implement Speech Recognition Here
-            Toast.makeText(getContext(), "Voice search coming soon!", Toast.LENGTH_SHORT).show();
-        });
+        // Handle microphone icon click (TODO: Implement voice search)
+        micIcon.setOnClickListener(v -> Toast.makeText(getContext(), "Voice search coming soon!", Toast.LENGTH_SHORT).show());
 
-        // Implement Search Functionality
+        // Handle search functionality
         searchEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -124,7 +112,31 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    // Display Greeting with User's Name and Time of Day
+    /**
+     * Setup RecyclerView with layout manager and adapter.
+     */
+    private void setupRecyclerView() {
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.addItemDecoration(new SpaceItemDecoration(24)); // Add 24dp space between items
+
+        productAdapter = new ProductAdapter(getContext(), productList, new ProductAdapter.OnProductClickListener() {
+            @Override
+            public void onWishlistClick(Product product) {
+                Toast.makeText(getContext(), "Added to Wishlist: " + product.getName(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onAddToCartClick(Product product) {
+                Toast.makeText(getContext(), "Added to Cart: " + product.getName(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        recyclerView.setAdapter(productAdapter);
+    }
+
+    /**
+     * Displays a greeting message based on the time of day.
+     */
     private void displayGreeting() {
         FirebaseUser user = auth.getCurrentUser();
         String name = (user != null && user.getDisplayName() != null && !user.getDisplayName().isEmpty())
@@ -132,29 +144,22 @@ public class HomeFragment extends Fragment {
 
         // Get the current hour
         int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
-        String greeting;
+        String greeting = (hour >= 5 && hour < 12) ? "Good Morning, " :
+                (hour >= 12 && hour < 17) ? "Good Afternoon, " :
+                        (hour >= 17 && hour < 21) ? "Good Evening, " : "Good Night, ";
 
-        if (hour >= 5 && hour < 12) {
-            greeting = "Good Morning, ";
-        } else if (hour >= 12 && hour < 17) {
-            greeting = "Good Afternoon, ";
-        } else if (hour >= 17 && hour < 21) {
-            greeting = "Good Evening, ";
-        } else {
-            greeting = "Good Night, ";
-        }
-
-        // Combine greeting and name
+        // Apply color styling to the name
         SpannableString spannableGreeting = new SpannableString(greeting + name);
-
-        // Set a different color for the name
         int nameColor = ContextCompat.getColor(requireContext(), R.color.blue);
         spannableGreeting.setSpan(new ForegroundColorSpan(nameColor), greeting.length(),
                 greeting.length() + name.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         greetingTextView.setText(spannableGreeting);
     }
-    // Load Products from Firestore
+
+    /**
+     * Loads products from Firestore and updates the RecyclerView.
+     */
     private void loadProducts() {
         db.collection("Exercise Books").get().addOnCompleteListener(task -> {
             if (task.isSuccessful() && task.getResult() != null) {
@@ -173,7 +178,9 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    // Filter Products Based on Search Query
+    /**
+     * Filters product list based on search query.
+     */
     private void performSearch(String query) {
         List<Product> filteredList = new ArrayList<>();
         for (Product product : productList) {
@@ -187,4 +194,3 @@ public class HomeFragment extends Fragment {
         productAdapter.updateList(filteredList);
     }
 }
-
