@@ -13,3 +13,15 @@ import com.bumptech.glide.Glide;
 import com.example.shopfinity.R;
 import java.util.List;
 import models.WishlistItem;
+
+public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.ViewHolder> {
+
+    private Context context;
+    private List<WishlistItem> wishlistItems;
+    private OnWishlistItemClickListener listener;
+
+    public WishlistAdapter(Context context, List<WishlistItem> wishlistItems, OnWishlistItemClickListener listener) {
+        this.context = context;
+        this.wishlistItems = wishlistItems;
+        this.listener = listener;
+    }
