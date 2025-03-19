@@ -142,6 +142,25 @@ public class WishlistFragment extends Fragment {
     }
 
 
+    private void removeFromWishlist(WishlistItem item, int position) {
+        db.collection("Wishlist").document(item.getId())
+                .delete()
+                .addOnSuccessListener(aVoid -> {
+                    wishlistItems.remove(position);
+                    wishlistAdapter.notifyItemRemoved(position);
+                    updateUI();
+
+                    // Play Lottie animation when an item is removed
+                    if (wishlistItems.isEmpty()) {
+                        lottieHeartClick.setVisibility(View.VISIBLE);
+                        lottieHeartClick.playAnimation();
+                    }
+                })
+                .addOnFailureListener(e -> Log.e(TAG, "Error removing item", e));
+    }
+
+
+
 
 
 
