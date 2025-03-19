@@ -75,3 +75,13 @@ public class WishlistFragment extends Fragment {
         cartIcon.setOnClickListener(v -> showCartToast());
 
 
+        // Initialize Wishlist RecyclerView
+        recyclerWishlist.setLayoutManager(new LinearLayoutManager(getContext()));
+        wishlistItems = new ArrayList<>();
+        wishlistAdapter = new WishlistAdapter(getContext(), wishlistItems, new WishlistAdapter.OnWishlistItemClickListener() {
+            @Override
+            public void onItemClick(WishlistItem item) {
+                // Handle item click (e.g., navigate to product details)
+            }
+
+
