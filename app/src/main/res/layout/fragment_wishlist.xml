@@ -110,4 +110,17 @@
             android:layout_marginTop="24dp" />
     </LinearLayout>
 
+    <!-- Left-Aligned Helpful Texts -->
+    <TextView
+        android:id="@+id/tvHeartIt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Heart it."
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/emptyWishlistContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="32dp" />
+
 
