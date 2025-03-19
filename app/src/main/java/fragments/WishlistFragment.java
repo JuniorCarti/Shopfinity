@@ -118,6 +118,30 @@ public class WishlistFragment extends Fragment {
     }
 
 
+    private void fetchWishlistProducts() {
+        wishlistProgressBar.setVisibility(View.VISIBLE);
+        CollectionReference wishlistRef = db.collection("Wishlist");
+
+        wishlistRef.get().addOnCompleteListener(task -> {
+            wishlistProgressBar.setVisibility(View.GONE);
+            if (task.isSuccessful() && task.getResult() != null) {
+                wishlistItems.clear();
+                for (DocumentSnapshot document : task.getResult()) {
+                    WishlistItem item = document.toObject(WishlistItem.class);
+                    if (item != null) {
+                        item.setId(document.getId()); // Set Firestore document ID
+                        wishlistItems.add(item);
+                    }
+                }
+                wishlistAdapter.notifyDataSetChanged();
+                updateUI();
+            } else {
+                Log.e(TAG, "Error fetching wishlist items", task.getException());
+            }
+        });
+    }
+
+
 
 
 
