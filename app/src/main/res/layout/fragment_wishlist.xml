@@ -79,4 +79,35 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="24dp">
 
+        <!-- Heart Icon -->
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_heart"
+            android:contentDescription="Heart Icon"
+            app:tint="@color/red" />
+
+        <!-- Empty Wishlist Message -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You currently have nothing saved to your Wishlist"
+            android:textSize="14sp"
+            android:textColor="@android:color/darker_gray"
+            android:layout_marginTop="16dp" />
+
+        <!-- Shop Now Button -->
+        <Button
+            android:id="@+id/btnShopNow"
+            android:layout_width="200dp"
+            android:layout_height="48dp"
+            android:text="Shop Now"
+            android:textSize="16sp"
+            android:backgroundTint="@color/orange"
+            android:textColor="@android:color/white"
+            android:fontFamily="sans-serif-medium"
+            android:elevation="4dp"
+            android:layout_marginTop="24dp" />
+    </LinearLayout>
+
 
