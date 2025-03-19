@@ -85,3 +85,23 @@ public class WishlistFragment extends Fragment {
             }
 
 
+            @Override
+            public void onRemoveClick(WishlistItem item, int position) {
+                removeFromWishlist(item, position);
+            }
+
+            @Override
+            public void onAddToCartClick(WishlistItem item) {
+                // Handle add to cart click
+            }
+        });
+        recyclerWishlist.setAdapter(wishlistAdapter);
+
+        // Fetch Wishlist Products
+        fetchWishlistProducts();
+
+        return view;
+    }
+
+
+
