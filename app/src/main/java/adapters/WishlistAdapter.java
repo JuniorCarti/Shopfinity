@@ -47,3 +47,18 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.ViewHo
         } else {
             holder.productDiscountPrice.setVisibility(View.GONE);
         }
+
+        // Load product image
+        if (item.getImageUrls() != null && !item.getImageUrls().isEmpty()) {
+            Glide.with(context)
+                    .load(item.getImageUrls().get(0))
+                    .placeholder(R.drawable.image_placeholder)
+                    .into(holder.productImage);
+        }
+
+        // Handle remove button click
+        holder.removeButton.setOnClickListener(v -> listener.onRemoveClick(item, position));
+
+        // Handle add to cart button click
+        holder.addToCartLayout.setOnClickListener(v -> listener.onAddToCartClick(item));
+    }
