@@ -160,6 +160,23 @@ public class WishlistFragment extends Fragment {
     }
 
 
+    private void updateUI() {
+        if (wishlistItems.isEmpty()) {
+            emptyWishlistContainer.setVisibility(View.VISIBLE);
+            recyclerWishlist.setVisibility(View.GONE);
+
+            // Play Lottie animation when the wishlist is empty
+            lottieHeartClick.setVisibility(View.VISIBLE);
+            lottieHeartClick.playAnimation();
+        } else {
+            emptyWishlistContainer.setVisibility(View.GONE);
+            recyclerWishlist.setVisibility(View.VISIBLE);
+            lottieHeartClick.setVisibility(View.GONE); // Hide Lottie animation
+        }
+    }
+}
+
+
 
 
 
