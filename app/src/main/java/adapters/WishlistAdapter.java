@@ -72,3 +72,23 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.ViewHo
         TextView productName, productBrand, productPrice, productDiscountPrice;
         ImageButton removeButton;
         ViewGroup addToCartLayout;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            productImage = itemView.findViewById(R.id.productImage);
+            productName = itemView.findViewById(R.id.productName);
+            productBrand = itemView.findViewById(R.id.productBrand);
+            productPrice = itemView.findViewById(R.id.productPrice);
+            productDiscountPrice = itemView.findViewById(R.id.productDiscountPrice);
+            removeButton = itemView.findViewById(R.id.removeFromWishlistButton);
+            addToCartLayout = itemView.findViewById(R.id.addToCartLayout);
+        }
+    }
+
+    public interface OnWishlistItemClickListener {
+        void onItemClick(WishlistItem item);
+
+        void onRemoveClick(WishlistItem item, int position);
+        void onAddToCartClick(WishlistItem item);
+    }
+}
