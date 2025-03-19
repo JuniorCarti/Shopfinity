@@ -35,3 +35,15 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         WishlistItem item = wishlistItems.get(position);
+        // Bind data to views
+        holder.productName.setText(item.getName());
+        holder.productBrand.setText(item.getBrand());
+        holder.productPrice.setText(String.format("Ksh %.2f", item.getPrice()));
+
+        // Show discount price if available
+        if (item.getDiscountPrice() > 0 && item.getDiscountPrice() < item.getPrice()) {
+            holder.productDiscountPrice.setText(String.format("Ksh %.2f", item.getDiscountPrice()));
+            holder.productDiscountPrice.setVisibility(View.VISIBLE);
+        } else {
+            holder.productDiscountPrice.setVisibility(View.GONE);
+        }
