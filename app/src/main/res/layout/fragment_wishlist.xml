@@ -123,4 +123,38 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="32dp" />
 
+    <TextView
+        android:id="@+id/tvStoreEverything"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Store everything you love on one page."
+        android:textSize="14sp"
+        android:textColor="@android:color/darker_gray"
+        app:layout_constraintTop_toBottomOf="@id/tvHeartIt"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/tvThinkBeforeBuying"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Think about it before purchasing it."
+        android:textSize="14sp"
+        android:textColor="@android:color/darker_gray"
+        app:layout_constraintTop_toBottomOf="@id/tvStoreEverything"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/tvNotificationOutOfStock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get notification about out-of-stock items."
+        android:textSize="14sp"
+        android:textColor="@android:color/darker_gray"
+        app:layout_constraintTop_toBottomOf="@id/tvThinkBeforeBuying"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp" />
+
+
 
