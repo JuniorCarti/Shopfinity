@@ -62,3 +62,13 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.ViewHo
         // Handle add to cart button click
         holder.addToCartLayout.setOnClickListener(v -> listener.onAddToCartClick(item));
     }
+    @Override
+    public int getItemCount() {
+        return wishlistItems.size();
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView productImage;
+        TextView productName, productBrand, productPrice, productDiscountPrice;
+        ImageButton removeButton;
+        ViewGroup addToCartLayout;
