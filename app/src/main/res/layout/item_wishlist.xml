@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:background="@drawable/product_item_background"
+    android:elevation="2dp"
+    android:focusable="true"
+    android:clickable="true">
+
+    <!-- Product Image with Remove Button -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@drawable/image_placeholder">
+
+        <ImageView
+            android:id="@+id/productImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:contentDescription="Product Image"
+            tools:src="@drawable/sample_product_image" />
+
+        <!-- Remove from Wishlist Button -->
+        <ImageButton
+            android:id="@+id/removeFromWishlistButton"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_delete"
+            android:contentDescription="Remove from Wishlist"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="8dp"
+            app:tint="@color/red" />
+    </RelativeLayout>
+
+    <!-- Product Name -->
+    <TextView
+        android:id="@+id/productName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Product Name"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:paddingTop="8dp"
+        android:maxLines="2"
+        android:ellipsize="end"
+        tools:text="Sample Product Name" />
+
+    <!-- Product Brand -->
+    <TextView
+        android:id="@+id/productBrand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Brand"
+        android:textSize="13sp"
+        android:textColor="@color/grey"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:paddingTop="4dp"
+        tools:text="Sample Brand" />
+
+    <!-- Product Price -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/productPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ksh 0.00"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            tools:text="Ksh 1,500.00" />
+
+        <TextView
+            android:id="@+id/productDiscountPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ksh 0.00"
+            android:textSize="12sp"
+            android:textColor="@color/red"
+            android:textStyle="bold"
+            android:paddingStart="8dp"
+            android:drawableStart="@drawable/ic_discount"
+            android:drawablePadding="4dp"
+            android:visibility="gone"
+            tools:text="Ksh 1,200.00" />
+    </LinearLayout>
+
+    <!-- Add to Cart Button -->
+    <LinearLayout
+        android:id="@+id/addToCartLayout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="8dp"
+        android:background="@drawable/cart_button_background"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_marginTop="12dp">
+
+        <ImageView
+            android:id="@+id/cartIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_cart"
+            android:contentDescription="Cart Icon"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/addToCartText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add to Cart"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:paddingStart="8dp" />
+    </LinearLayout>
+
+</LinearLayout>
