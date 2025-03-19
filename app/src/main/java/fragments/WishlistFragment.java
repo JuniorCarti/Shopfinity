@@ -104,4 +104,14 @@ public class WishlistFragment extends Fragment {
     }
 
 
+    private void navigateToHomeFragment() {
+        // Navigate to HomeFragment
+        FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, new HomeFragment()); // Replace with your HomeFragment
+        transaction.addToBackStack(null); // Optional: Add to back stack
+        transaction.commit();
+    }
+
+
+
 
