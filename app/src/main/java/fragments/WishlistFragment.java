@@ -28,3 +28,20 @@ import java.util.List;
 
 import adapters.WishlistAdapter;
 import models.WishlistItem;
+
+
+public class WishlistFragment extends Fragment {
+
+    private static final String TAG = "WishlistFragment";
+
+    private ImageView backArrow, cartIcon;
+    private Button shopNowBtn;
+    private RecyclerView recyclerWishlist;
+    private LinearLayout emptyWishlistContainer;
+    private ProgressBar wishlistProgressBar;
+    private LottieAnimationView lottieHeartClick;
+
+    private List<WishlistItem> wishlistItems;
+    private WishlistAdapter wishlistAdapter;
+
+    private FirebaseFirestore db;
