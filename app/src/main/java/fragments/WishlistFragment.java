@@ -45,3 +45,13 @@ public class WishlistFragment extends Fragment {
     private WishlistAdapter wishlistAdapter;
 
     private FirebaseFirestore db;
+
+    public WishlistFragment() {
+        // Required empty public constructor
+    }
+
+    @SuppressLint("MissingInflatedId")
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_wishlist, container, false);
