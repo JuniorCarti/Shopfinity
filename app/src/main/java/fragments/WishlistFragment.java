@@ -112,6 +112,12 @@ public class WishlistFragment extends Fragment {
         transaction.commit();
     }
 
+    private void showCartToast() {
+        // Show a toast if the cart is empty
+        Toast.makeText(getContext(), "Start shopping to add items to your cart", Toast.LENGTH_SHORT).show();
+    }
+
+
 
 
 
