@@ -55,3 +55,16 @@ public class WishlistFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_wishlist, container, false);
+
+
+        // Initialize Views
+        backArrow = view.findViewById(R.id.backArrow);
+        cartIcon = view.findViewById(R.id.cartIcon);
+        shopNowBtn = view.findViewById(R.id.btnShopNow);
+        recyclerWishlist = view.findViewById(R.id.recyclerWishlist);
+        emptyWishlistContainer = view.findViewById(R.id.emptyWishlistContainer);
+        wishlistProgressBar = view.findViewById(R.id.wishlistProgressBar);
+        lottieHeartClick = view.findViewById(R.id.lottieHeartClick);
+
+        db = FirebaseFirestore.getInstance();
+
