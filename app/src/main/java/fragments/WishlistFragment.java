@@ -68,3 +68,10 @@ public class WishlistFragment extends Fragment {
 
         db = FirebaseFirestore.getInstance();
 
+
+        // Set Click Listeners
+        backArrow.setOnClickListener(v -> navigateToHomeFragment());
+        shopNowBtn.setOnClickListener(v -> navigateToHomeFragment());
+        cartIcon.setOnClickListener(v -> showCartToast());
+
+
