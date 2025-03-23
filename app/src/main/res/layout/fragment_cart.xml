@@ -25,3 +25,10 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_weight="1"/>
+        <ImageView
+            android:id="@+id/shipping_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_shipping"
+            android:contentDescription="Shipping Icon"/>
+    </LinearLayout>
