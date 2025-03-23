@@ -32,3 +32,44 @@
             android:src="@drawable/ic_shipping"
             android:contentDescription="Shipping Icon"/>
     </LinearLayout>
+    <!-- Empty Cart Section -->
+    <LinearLayout
+        android:id="@+id/empty_cart_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="32dp"
+        app:layout_constraintTop_toBottomOf="@id/cart_toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_cart"
+            android:contentDescription="Empty Cart"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your cart is empty"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingTop="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Every item for every need"
+            android:textSize="14sp"
+            android:textColor="@android:color/darker_gray"/>
+
+        <Button
+            android:id="@+id/shop_by_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shop by Category"
+            android:padding="10dp"
+            android:layout_marginTop="12dp"/>
+    </LinearLayout>
