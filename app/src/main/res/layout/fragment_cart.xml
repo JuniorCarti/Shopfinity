@@ -13,10 +13,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="10dp"
         android:layout_marginTop="25dp"
-        android:padding="16dp"
         app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center_vertical">
+        android:background="@color/orange">
+
+        <ImageView
+            android:id="@+id/cart_back_btn"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_back"
+            android:contentDescription="Back"
+            android:padding="8dp"/>
+
         <TextView
             android:id="@+id/cart_title"
             android:layout_width="0dp"
@@ -24,73 +34,105 @@
             android:text="Cart"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_weight="1"/>
+            android:textColor="@android:color/white"
+            android:layout_weight="1"
+            android:gravity="center"/>
+
         <ImageView
-            android:id="@+id/shipping_icon"
+            android:id="@+id/cart_icon"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_shipping"
-            android:contentDescription="Shipping Icon"/>
+            android:src="@drawable/ic_cart"
+            android:contentDescription="Cart Icon"/>
     </LinearLayout>
-    <!-- Empty Cart Section -->
+
+    <!-- RecyclerView for Cart Items -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cart_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/cart_toolbar"
+        app:layout_constraintBottom_toTopOf="@id/subtotal_section"
+        tools:listitem="@layout/item_recommended_product"/>
+
+    <!-- Subtotal and Checkout -->
     <LinearLayout
-        android:id="@+id/empty_cart_section"
+        android:id="@+id/subtotal_section"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:background="@android:color/white"
+        android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@id/checkout_btn">
+
+        <TextView
+            android:id="@+id/cart_subtotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subtotal: $0.00"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/cart_subtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Taxes and shipping calculated at checkout"
+            android:textSize="14sp"
+            android:textColor="@android:color/darker_gray"/>
+    </LinearLayout>
+
+    <!-- Checkout Button -->
+    <Button
+        android:id="@+id/checkout_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Proceed to Checkout"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:backgroundTint="@color/orange"
+        android:textColor="@android:color/black"
+        android:padding="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <!-- Empty Cart UI -->
+    <LinearLayout
+        android:id="@+id/empty_cart_section"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         android:gravity="center"
-        android:padding="32dp"
-        app:layout_constraintTop_toBottomOf="@id/cart_toolbar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:visibility="gone"
+        android:padding="32dp">
 
         <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:src="@drawable/ic_cart"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_empty_cart"
             android:contentDescription="Empty Cart"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Your cart is empty"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:paddingTop="8dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Every item for every need"
+            android:text="Shop now to fill your cart!"
             android:textSize="14sp"
             android:textColor="@android:color/darker_gray"/>
 
         <Button
-            android:id="@+id/shop_by_category"
+            android:id="@+id/browse_items_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Shop by Category"
+            android:text="Browse Items"
             android:padding="10dp"
             android:layout_marginTop="12dp"/>
     </LinearLayout>
-    <!-- Suggested Items Section -->
-    <TextView
-        android:id="@+id/suggestions_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="You Might Like to Fill it With"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/empty_cart_section"
-        app:layout_constraintStart_toStartOf="parent"
-        android:padding="16dp"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recommended_items"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/suggestions_title"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:listitem="@layout/item_recommended_product"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
