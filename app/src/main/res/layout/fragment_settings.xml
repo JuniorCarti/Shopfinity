@@ -48,4 +48,13 @@
                 android:elevation="4dp" />
         </RelativeLayout>
 
+        <!-- User Name & Membership -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="16dp">
+
+
 
