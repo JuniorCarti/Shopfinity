@@ -16,3 +16,10 @@
             android:layout_width="match_parent"
             android:layout_height="220dp"
             android:background="@color/white">
+            <!-- Cover Photo (Optional) -->
+            <ImageView
+                android:id="@+id/coverPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/cover_placeholder_ecom" />
