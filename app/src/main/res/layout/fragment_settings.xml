@@ -131,6 +131,32 @@
                     android:textSize="12sp"
                     android:textColor="#666666" />
             </LinearLayout>
+            <!-- Addresses -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/savedAddresses"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    android:textSize="18sp"
+                    android:textColor="#6200EE"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Addresses"
+                    android:textSize="12sp"
+                    android:textColor="#666666" />
+            </LinearLayout>
+        </LinearLayout>
+
 
 
 
