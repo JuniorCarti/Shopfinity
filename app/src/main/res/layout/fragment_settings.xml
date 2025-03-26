@@ -34,3 +34,18 @@
                 app:civ_border_width="2dp"
                 app:civ_border_color="#FFFFFF" />
 
+            <!-- Edit Profile Button (Floating) -->
+            <ImageButton
+                android:id="@+id/editProfileButton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="160dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_circle_accent"
+                android:src="@drawable/ic_edit"
+                android:scaleType="centerInside"
+                android:elevation="4dp" />
+        </RelativeLayout>
+
+
