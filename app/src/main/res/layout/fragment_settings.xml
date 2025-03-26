@@ -157,6 +157,42 @@
             </LinearLayout>
         </LinearLayout>
 
+        <!-- ===== SECTION C: Tabs (Orders/Wishlist/Settings) ===== -->
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/white"
+            app:tabIndicatorColor="#6200EE"
+            app:tabSelectedTextColor="#6200EE"
+            app:tabTextColor="#666666">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Orders" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wishlist" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Settings" />
+        </com.google.android.material.tabs.TabLayout>
+
+        <!-- ViewPager for Fragments -->
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+</ScrollView>
+
 
 
 
