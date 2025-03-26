@@ -6,3 +6,13 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:background="#F8F8F8">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- ===== SECTION A: Header (Profile + Basic Info) ===== -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:background="@color/white">
