@@ -1,5 +1,6 @@
 [versions]
 agp = "8.8.2"
+circleimageview = "3.1.0"
 firebaseAuthVersion = "21.0.1"
 firebaseBom = "33.10.0"
 firebaseFirestoreVersion = "24.9.1"
@@ -27,6 +28,7 @@ viewpager2 = "1.1.0"
 firebaseFirestore = "25.1.2"
 
 [libraries]
+circleimageview = { module = "de.hdodenhof:circleimageview", version.ref = "circleimageview" }
 compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
 firebase-auth-v2101 = { module = "com.google.firebase:firebase-auth", version.ref = "firebaseAuthVersion" }
 firebase-auth-v2230 = { module = "com.google.firebase:firebase-auth", version.ref = "googleFirebaseAuth" }

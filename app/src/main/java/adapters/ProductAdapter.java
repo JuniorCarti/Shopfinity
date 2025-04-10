@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.shopfinity.ProductDetailsActivity;
 import com.example.shopfinity.R;
+import com.google.android.material.button.MaterialButton;
 
 import java.text.DecimalFormat;
 import java.util.List;
@@ -28,7 +29,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     private final Context context;
     private List<Product> productList;
     private final OnProductClickListener listener;
-    private final DecimalFormat priceFormat = new DecimalFormat("#,##0.00"); // Format prices
+    private final DecimalFormat priceFormat = new DecimalFormat("#,##0.00");
 
     public interface OnProductClickListener {
         void onWishlistClick(Product product);
@@ -99,7 +100,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         });
 
         // Add to cart click listener
-        holder.cartLayout.setOnClickListener(v -> {
+        holder.addToCartButton.setOnClickListener(v -> {
             if (listener != null) {
                 listener.onAddToCartClick(product);
                 Toast.makeText(context, "Added to Cart", Toast.LENGTH_SHORT).show();
@@ -114,19 +115,21 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     public void updateList(List<Product> newList) {
         productList = newList;
-        notifyDataSetChanged(); // Use DiffUtil for better performance in future
+        notifyDataSetChanged();
     }
 
     public static class ProductViewHolder extends RecyclerView.ViewHolder {
         ImageView productImage, wishlistButton;
-        TextView productName, productBrand, productDescription, productPrice, productDiscountPrice, bestsellerBadge, productRatingCount;
-        LinearLayout cartLayout, starContainer;
+        TextView productName, productBrand, productDescription, productPrice,
+                productDiscountPrice, bestsellerBadge, productRatingCount;
+        LinearLayout starContainer;
+        MaterialButton addToCartButton;
 
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
             productImage = itemView.findViewById(R.id.productImage);
             wishlistButton = itemView.findViewById(R.id.wishlistButton);
-            cartLayout = itemView.findViewById(R.id.cartLayout);
+            addToCartButton = itemView.findViewById(R.id.cartLayout); // Now a MaterialButton
             productName = itemView.findViewById(R.id.productName);
             productBrand = itemView.findViewById(R.id.productBrand);
             productDescription = itemView.findViewById(R.id.productDescription);
@@ -138,9 +141,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         }
     }
 
-    /**
-     * Updates the star rating UI dynamically and sets the review count.
-     */
     private void updateStarRating(ProductViewHolder holder, double rating, int reviewCount) {
         holder.starContainer.removeAllViews();
 
@@ -151,22 +151,33 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         for (int i = 0; i < fullStars; i++) {
             ImageView star = new ImageView(context);
             star.setImageResource(R.drawable.ic_star_filled);
+            star.setLayoutParams(new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            ));
             holder.starContainer.addView(star);
         }
 
         if (hasHalfStar) {
             ImageView halfStar = new ImageView(context);
             halfStar.setImageResource(R.drawable.ic_star_half);
+            halfStar.setLayoutParams(new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            ));
             holder.starContainer.addView(halfStar);
         }
 
         for (int i = 0; i < emptyStars; i++) {
             ImageView emptyStar = new ImageView(context);
             emptyStar.setImageResource(R.drawable.ic_star_empty);
+            emptyStar.setLayoutParams(new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            ));
             holder.starContainer.addView(emptyStar);
         }
 
-        // Set review count
         holder.productRatingCount.setText("(" + reviewCount + ")");
     }
 }

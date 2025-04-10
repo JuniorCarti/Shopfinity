@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.chip.Chip
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:text="Category"
+    app:chipBackgroundColor="@color/m3_sys_color_secondary_container"
+    app:chipStrokeColor="@color/m3_sys_color_outline"
+    app:chipStrokeWidth="1dp"
+    app:closeIconVisible="false" />

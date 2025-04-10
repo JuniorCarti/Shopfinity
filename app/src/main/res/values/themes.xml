@@ -10,4 +10,8 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">8dp</item>
     </style>
+    <!-- styles.xml -->
+    <style name="AppTheme" parent="Theme.Material3.DynamicColors.Dark">
+        <!-- Your theme attributes -->
+    </style>
 </resources>
