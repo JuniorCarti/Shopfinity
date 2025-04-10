@@ -171,3 +171,37 @@
                     android:textColor="#757575"/>
             </LinearLayout>
         </LinearLayout>
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@android:color/white"
+            app:tabIndicatorColor="#FFA500"
+            app:tabIndicatorHeight="3dp"
+            app:tabSelectedTextColor="#FFA500"
+            app:tabTextColor="#FFA500">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Orders"/>
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wishlist"/>
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Settings"/>
+        </com.google.android.material.tabs.TabLayout>
+
+        <!-- Content area -->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_marginTop="4dp"/>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
