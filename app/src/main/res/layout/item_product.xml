@@ -29,3 +29,16 @@
                 android:contentDescription="Product Image"
                 android:background="@drawable/image_placeholder"
                 android:clipToOutline="true"/>
+            <!-- Floating wishlist button -->
+            <ImageButton
+                android:id="@+id/wishlistButton"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="8dp"
+                android:background="@drawable/circle_background_white"
+                android:src="@drawable/ic_wishlist_selected"
+                android:contentDescription="Add to Wishlist"
+                app:tint="@color/orange"
+                android:elevation="4dp"/>
+        </RelativeLayout>
