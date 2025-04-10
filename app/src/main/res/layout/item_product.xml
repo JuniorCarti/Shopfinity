@@ -157,3 +157,27 @@
                         android:visibility="gone"
                         android:layout_marginTop="2dp"/>
                 </LinearLayout>
+
+                <!-- Add to Cart Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/cartLayout"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    app:cornerRadius="18dp"
+                    android:paddingHorizontal="12dp"
+                    android:text="Add to Cart"
+                    android:textSize="12sp"
+                    android:textColor="@color/orange"
+                    app:icon="@drawable/ic_cart"
+                    app:iconTint="@color/orange"
+                    app:iconSize="16dp"
+                    app:iconPadding="4dp"
+                    app:strokeColor="@color/orange"
+                    app:strokeWidth="1dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
