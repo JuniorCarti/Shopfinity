@@ -144,3 +144,16 @@
                         android:textSize="15sp"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/productDiscountPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ksh 0.00"
+                        android:textSize="12sp"
+                        android:textColor="@color/red"
+                        android:textStyle="normal"
+                        android:drawableStart="@drawable/ic_discount"
+                        android:drawablePadding="4dp"
+                        android:visibility="gone"
+                        android:layout_marginTop="2dp"/>
+                </LinearLayout>
